@@ -1,0 +1,221 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EIS Landing API",
+    "description": "API to provide query results from production DB",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/role": {
+      "get": {
+        "tags": ["Role"],
+        "description": "Fetch role based on given job title",
+        "parameters": [
+          {
+            "name": "jobTitle",
+            "in": "query",
+            "description": "Job title received from AD",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Role"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory": {
+      "get": {
+        "tags": ["Tile"],
+        "description": "List of all tile inventory allowed for the given Role",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "role",
+            "description": "Role received from /role endpoint",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Role"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Tile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/layout": {
+      "get": {
+        "tags": ["Layout"],
+        "description": "Users layout. If it's the users first time logging in, it should return a default layout for the role.",
+        "parameters": [
+          {
+            "name": "Employee ID",
+            "in": "query",
+            "description": "ID of the employee. Will use employee email for now.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Employee_ID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Layout"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Update users layout on every change of tile state",
+        "tags": ["Layout"],
+        "parameters": [
+          {
+            "name": "Layout",
+            "in": "body",
+            "description": "Layout with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/Layout"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Layout is updated",
+            "schema": {
+              "$ref": "#/definitions/Layout"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Role": {
+      "type": "string"
+    },
+    "Employee_ID": {
+      "type": "string",
+      "example": "user@company.com"
+    },
+    "Tile": {
+      "required": [
+        "_id",
+        "tile_category",
+        "tile_name",
+        "tile_owner",
+        "tile_description",
+        "tile_dashboard_url"
+      ],
+      "properties": {
+        "_id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "tile_category": {
+          "type": "string"
+        },
+        "tile_name": {
+          "type": "string"
+        },
+        "tile_owner": {
+          "type": "string"
+        },
+        "tile_description": {
+          "type": "string"
+        },
+        "tile_dashboard_url": {
+          "type": "string"
+        },
+        "metric_datetime": {
+          "type": "string"
+        },
+        "metric_value": {
+          "type": "string"
+        },
+        "metric_target": {
+          "type": "string"
+        },
+        "metric_image_url": {
+          "type": "string"
+        },
+        "metric_trend_ind_url": {
+          "type": "string"
+        }
+      }
+    },
+    "Layout": {
+      "required": ["employee_id", "tile_id", "order", "shown"],
+      "properties": {
+        "layout_data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tile_layout": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "tile_id": {
+                      "type": "integer"
+                    },
+                    "tile_order": {
+                      "type": "integer"
+                    },
+                    "tile_shown": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "category_layout": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "category_name": {
+                      "type": "string"
+                    },
+                    "category_order": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

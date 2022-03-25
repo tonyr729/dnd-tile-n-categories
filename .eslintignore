@@ -1,0 +1,8 @@
+.gitignore
+.gitlab/
+.vscode/
+coverage/
+node_modules/*
+src/utils/mock/*
+**/*.scss
+**/**/*.test.tsx

@@ -1,0 +1,95 @@
+{
+  "name": "eis-landing",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@commitlint/cli": "^16.0.2",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.20.40",
+    "@types/react": "^16.14.21",
+    "@types/react-dom": "^16.9.14",
+    "axios": "^0.26.0",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "lodash": "^4.17.21",
+    "mysql2": "^2.3.3",
+    "node-sass": "^7.0.1",
+    "path": "^0.12.7",
+    "react": "^17.0.2",
+    "react-adal": "^0.5.2",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-beautiful-dnd-grid": "^0.1.3-alpha",
+    "react-collapsed": "^3.3.0",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "swagger-ui-express": "^4.3.0",
+    "typescript": "^4.1.6"
+  },
+  "scripts": {
+    "start": "nodemon server.js & react-scripts start",
+    "server-build": "npm-watch",
+    "start:react": "react-scripts start",
+    "start:server": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "serve": "node server.js",
+    "prettier": "prettier 'src/'",
+    "prettier:fix": "prettier --write 'src/'",
+    "eslint": "eslint ./src",
+    "eslint:fix": "eslint ./src --fix ",
+    "stylelint": "npx stylelint '**/*.scss'",
+    "stylelint:fix": "npx stylelint --fix '**/*.scss'",
+    "fix": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
+  },
+  "watch": {
+    "build": "src/",
+    "serve": "server.js"
+  },
+  "proxy": "http://localhost:8080",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.10.11",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/lodash": "^4.14.179",
+    "@types/react-adal": "^0.5.2",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "eslint": "8.6.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.2.0",
+    "npm-watch": "^0.11.0",
+    "prettier": "2.5.1",
+    "react-test-renderer": "^17.0.2",
+    "stylelint": "^14.2.0",
+    "stylelint-config-standard-scss": "^3.0.0"
+  }
+}

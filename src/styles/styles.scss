@@ -1,0 +1,10 @@
+// This is the only file that should import all other style sheets.
+// This allows us to import all global styles in one file for components.
+
+// Variables
+// ---------
+@import 'variables/colors';
+
+// Reset and base files
+// --------------------
+@import 'base/base';

@@ -1,0 +1,28 @@
+@import '../../styles/styles';
+
+.sidebar-category {
+  display: flex;
+  margin-left: 20px;
+}
+
+.add-category {
+  margin-right: 15px;
+}
+
+.category-icon {
+  margin-right: 20px;
+}
+
+.sidebar-category-title {
+  color: $charcoal;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 12px 0;
+  text-align: center;
+}
+
+.arrow-expand {
+  position: fixed;
+  margin-left: 12rem;
+  margin-top: 5px;
+}

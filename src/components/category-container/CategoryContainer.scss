@@ -1,0 +1,18 @@
+@import '../../styles/styles';
+
+.category-container {
+  height: fit-content;
+  width: 540px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15%);
+}
+
+.category-container:last-child {
+  margin-right: auto;
+}
+
+@media screen and (max-width: 1500px) {
+  .category-container {
+    margin-bottom: 1.5rem;
+  }
+}

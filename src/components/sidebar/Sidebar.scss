@@ -1,0 +1,54 @@
+@import '../../styles/styles';
+
+.sidebar {
+  width: 250px;
+  background-color: $white;
+  border-right: 2px solid $dark-grey;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translateX(-129px);
+  transition: 300ms ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+
+  &--expanded {
+    background-size: 100%;
+    background-position: 0 0;
+    transform: translateX(0);
+  }
+
+  &:hover {
+    background-position: 0 0;
+  }
+}
+
+.toggle-expand {
+  background-color: $white;
+  position: relative;
+  top: 1.5rem;
+  left: 14rem;
+  cursor: pointer;
+}
+
+.brand {
+  margin-top: 10px;
+}
+
+.logo {
+  float: right;
+  margin-top: 40px;
+}
+
+.logout {
+  position: absolute;
+  top: 95%;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  &--collapsed {
+    left: 125px;
+  }
+}

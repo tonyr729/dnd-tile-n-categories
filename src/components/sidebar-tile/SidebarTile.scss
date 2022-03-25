@@ -1,0 +1,18 @@
+@import '../../styles/styles';
+
+.sidebar-tile {
+  display: flex;
+  padding: 0.5rem;
+  padding-left: 75px;
+  background-color: $blue-tint;
+  border-top: 1px solid $dark-grey;
+}
+
+.sidebar-tile:last-child {
+  border-bottom: 1px solid $dark-grey;
+}
+
+.sidebar-tile-title {
+  display: inline-block;
+  vertical-align: sub;
+}

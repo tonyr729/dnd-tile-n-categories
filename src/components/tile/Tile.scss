@@ -1,0 +1,64 @@
+@import '../../styles/styles';
+
+.tile-container {
+  display: flex;
+  height: 62px;
+  background-color: rgb(250, 250, 252);
+  padding: 20px;
+  padding-left: 40px;
+  border-bottom: 1px solid $dark-grey;
+
+  div {
+    display: flex;
+    width: 18rem;
+  }
+
+  &:hover {
+    background-color: rgba(109, 199, 237, 0.2);
+  }
+
+  .left-content {
+    display: flex;
+    width: 60%;
+    padding-right: 5px;
+
+    .remove-category {
+      height: 20px;
+    }
+
+    .subcategory-icon {
+      margin-right: 20px;
+    }
+
+    .subcategory-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 10rem;
+    }
+  }
+
+  .right-content {
+    display: flex;
+    width: 40%;
+    justify-content: right;
+    padding-right: 1rem;
+  }
+}
+
+.tile-container:nth-child(even) {
+  background-color: rgb(243, 247, 251);
+
+  &:hover {
+    background-color: rgba(109, 199, 237, 0.2);
+  }
+}
+
+.performance {
+  margin-right: 1rem;
+}
+
+.link-wrapper {
+  color: inherit;
+  text-decoration: none;
+}
